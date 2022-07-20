@@ -18,8 +18,8 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)/result'
-    contents: '*.json' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    contents: 'package.json' 
+    targetFolder: '/home/vsts/work'
   displayName: 'Copy npm package'
 
 - script: |
