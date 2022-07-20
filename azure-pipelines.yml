@@ -21,4 +21,4 @@ steps:
 
 - script: |
     npm run build
-  displayName: 'nmp build'
+  displayName: 'npm build'
