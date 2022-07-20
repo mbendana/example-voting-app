@@ -19,7 +19,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)/result'
     contents: 'package.json' 
-    targetFolder: '/home/vsts/work'
+    targetFolder: '/home/vsts/work/'
   displayName: 'Copy npm package'
 
 - script: |
