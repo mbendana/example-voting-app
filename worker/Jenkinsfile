@@ -35,7 +35,7 @@ pipeline {
         }
         success {
             echo 'Pipeline was successful.'
-            archiveArtifacts artifact: '**/target/*.jar', fingerprint: true
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
         failure {
             echo 'Pipeline failed.'
