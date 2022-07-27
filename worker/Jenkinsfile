@@ -38,14 +38,14 @@ pipeline {
         }
         success {
             withCredentials([usernamePassword(credentialsId: 'github-mbendana', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\"state\": \"success\", \"context\": \"Build URL $BUILD_URL, Job URL $JOB_URL, Branch Name $BRANCH_NAME\", \"description\": \"Jenkins\", \"target_url\": \"http://jenkins.mhalton.tk:8080/job/instavote/job/worker-build/$BUILD_NUMBER/console\"}" --url $GITHUB_API_URL/statuses/$GIT_COMMIT'
+                sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\"state\": \"success\", \"context\": \"Build URL $BUILD_URL Job URL $JOB_URL Branch Name $BRANCH_NAME\", \"description\": \"Jenkins\", \"target_url\": \"http://jenkins.mhalton.tk:8080/job/instavote/job/worker-build/$BUILD_NUMBER/console\"}" --url $GITHUB_API_URL/statuses/$GIT_COMMIT'
             }
             echo 'Pipeline was successful.'
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
         failure {
             withCredentials([usernamePassword(credentialsId: 'github-mbendana', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\"state\": \"failure\", \"context\": \"Build URL $BUILD_URL, Job URL $JOB_URL, Branch Name $BRANCH_NAME\", \"description\": \"Jenkins\", \"target_url\": \"http://jenkins.mhalton.tk:8080/job/instavote/job/worker-build/$BUILD_NUMBER/console\"}" --url $GITHUB_API_URL/statuses/$GIT_COMMIT'
+            sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\"state\": \"failure\", \"context\": \"Build URL $BUILD_URL Job URL $JOB_URL Branch Name $BRANCH_NAME\", \"description\": \"Jenkins\", \"target_url\": \"http://jenkins.mhalton.tk:8080/job/instavote/job/worker-build/$BUILD_NUMBER/console\"}" --url $GITHUB_API_URL/statuses/$GIT_COMMIT'
             }
             echo 'Pipeline failed.'
         }
