@@ -45,7 +45,7 @@ pipeline {
         }
         failure {
             withCredentials([usernamePassword(credentialsId: 'github-mbendana', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"failure\\"}" --url $GITHUB_API_URL/statuses/$GIT_COMMIT'
+            sh 'curl -X POST --user $USERNAME:$PASSWORD --data  "{\\"state\\": \\"failure\\", \\"Branch\\": \\"$GIT_BRANCH\\"}" --url $GITHUB_API_URL/statuses/$GIT_COMMIT'
             }
             echo 'Pipeline failed.'
         }
