@@ -3,6 +3,9 @@ pipeline {
     tools {
         maven 'Maven 3.8.6'
     }
+    environment {
+        GITHUB_API_URL='https://api.GitHub.com/repos/mbendana/example-voting-app'
+    }
     stages {
         stage('build') {
             when {
