@@ -55,4 +55,5 @@ pipeline {
             echo 'Pipeline failed.'
 						slackSend (color: "danger", channel: "instavote-cd", message: "Build Failed - ${env.JOB_NAME} - #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
         }
-    } }
+    }
+}
